@@ -9,9 +9,13 @@ Team Members:
 Chucks @KC0NUG
 */
 var NetImgArray = [];
-var NetURL = ""
-$("addActorSearch").on("click", function() {
-  NetURL = $('actorSearch').val().trim();
+var NetURL = "";
+
+$(document).on("click","#addActorSearch", function() {
+  console.log("working");
+  NetURL = $('#actorSearch').val().trim();
+
+  console.log(NetURL);
   $.ajax({
           url: "https://netflixroulette.net/api/api.php?actor=" + NetURL,
           //search by director, actor, and title works, year is weird jay lowi
