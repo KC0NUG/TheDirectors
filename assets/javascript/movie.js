@@ -11,23 +11,17 @@ Chucks @KC0NUG
 var NetImgArray = [];
 
 $.ajax({
-        url: "https://netflixroulette.net/api/api.php?title=How%20to%20train%20your%20dragon",
+        url: "https://netflixroulette.net/api/api.php?actor=Robin%20Williams",
+        //search by director, actor, and title works, year is weird jay lowi
         method: "GET"
       })
 
       // After the data from the AJAX request comes back
       .done(function(response) {
         console.log(response);
-        // Saving the image_original_url property
-        // var imageUrl = response.data.image_original_url;
+        NetImgArray.push(response[0].poster);
+        NetImgArray.push(response[1].poster);
+        NetImgArray.push(response[2].poster);
+        console.log(NetImgArray);
 
-        // // Creating and storing an image tag
-        // var catImage = $("<img>");
-
-        // // Setting the catImage src attribute to imageUrl
-        // catImage.attr("src", imageUrl);
-        // catImage.attr("alt", "cat image");
-
-        // // Prepending the catImage to the images div
-        // $("#images").prepend(catImage);
       });
