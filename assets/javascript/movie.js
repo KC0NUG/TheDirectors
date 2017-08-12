@@ -26,34 +26,6 @@ $(document).on("click","#addActorSearch", function() {
         .done(function(response) {
           console.log(response);
 
-          console.log(NetImgArray);
-*/
-        });
-});
-
-function getCarouselCtl() {
-  return `<a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a><a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>`
-}
-
-function getCarouselIndicator(count, active = false) {
-  if (active || count == 0) {
-    return `<li data-target="#myCarousel" data-slide-to="${count}" class="active"></li>`;
-  }
-
-  return `<li data-target="#myCarousel" data-slide-to="${count}"></li>`;
-}
-
-function getCarouselItem(movie, active = false) {
-  var poster = movie.poster;
-  
-  if (active) {
-    return `<div class="item active"><img src="${poster}"><div class="container"><div class="carousel-caption"></div></div></div>`;
-  }
-
-  return `<div class="item"><img src="${poster}"><div class="container"><div class="carousel-caption"></div></div></div>`;
-}
-
-
           $("#carouselInd").empty();
           $("#carousel").empty();
 
@@ -84,12 +56,29 @@ function getCarouselItem(movie, active = false) {
           NetImgArray.push(response[0].poster);
           NetImgArray.push(response[1].poster);
           NetImgArray.push(response[2].poster);
-=======
-          for (i = 0; i < response.length ; i++) {
-            NetImgArray.push(response[i].poster);
-            console.log(i + 1);
-          };
-          // NetImgArray.push(response[0].poster);
-          // NetImgArray.push(response[1].poster);
-          // NetImgArray.push(response[2].poster);
-          console.log("after forloop");
+          console.log(NetImgArray);
+*/
+        });
+});
+
+function getCarouselCtl() {
+  return `<a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a><a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>`
+}
+
+function getCarouselIndicator(count, active = false) {
+  if (active || count == 0) {
+    return `<li data-target="#myCarousel" data-slide-to="${count}" class="active"></li>`;
+  }
+
+  return `<li data-target="#myCarousel" data-slide-to="${count}"></li>`;
+}
+
+function getCarouselItem(movie, active = false) {
+  var poster = movie.poster;
+
+  if (active) {
+    return `<div class="item active"><img src="${poster}"><div class="container"><div class="carousel-caption"></div></div></div>`;
+  }
+
+  return `<div class="item"><img src="${poster}"><div class="container"><div class="carousel-caption"></div></div></div>`;
+}
