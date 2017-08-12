@@ -1,0 +1,45 @@
+<html>
+<form class="form">
+<select name="filter" class="mag">
+ <option value="movie">Movie</option>
+ <option value="actor">Actor</option>
+ <option value="genre">Genre</option>
+</select>
+ <input type="text" class="userText">
+<input type="submit" class="submit">
+</form>
+<div id="poster">
+</div>
+</html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+ var userSearch;
+ var queryURL;
+ $(".submit").click(function(e) {
+     e.preventDefault();
+     userSearch = $(".userText").val();
+     if ($(".mag").val() == "movie") {
+         queryURL = "http://www.omdbapi.com/?t=" + userSearch + "&y=&plot=short&apikey=40e9cece";
+     } else if ($(".mag").val() == "actor") {
+         //queryURL = //Actor search url
+     } else if ($(".mag").val() == "genre") {
+         //queryURL = //genre search url
+     }
+
+
+     $.ajax({
+         url: queryURL,
+         method: "GET"
+     }).done(function(response) {
+         var posterImage = $("<img>");
+         posterImage.attr("src", response.Poster);
+         posterImage.attr("height", "200px");
+         posterImage.attr("width", "200px");
+
+
+         // $(".poster").append("<img src=" + response.Poster +">")
+         $("#poster").html(posterImage[0]);
+     })
+ })
+</script>
