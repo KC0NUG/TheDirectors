@@ -25,9 +25,14 @@ $(document).on("click","#addActorSearch", function() {
         // After the data from the AJAX request comes back
         .done(function(response) {
           console.log(response);
-          NetImgArray.push(response[0].poster);
-          NetImgArray.push(response[1].poster);
-          NetImgArray.push(response[2].poster);
+          for (i = 0; response[i].poster != undefined ; i++) {
+            NetImgArray.push(response[i].poster);
+            console.log(i + 1);
+          };
+          // NetImgArray.push(response[0].poster);
+          // NetImgArray.push(response[1].poster);
+          // NetImgArray.push(response[2].poster);
+          console.log("after forloop");
           console.log(NetImgArray);
 
         });
