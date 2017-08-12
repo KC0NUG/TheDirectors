@@ -35,7 +35,7 @@ $(document).on("click","#addActorSearch", function() {
           for (var i = 0; i < response.length; i++) {
             $("#carouselInd").append(getCarouselIndicator(i));
 
-            $("#carousel").append(getCarouselItem(response[i]));
+            // $("#carousel").append(getCarouselItem(response[i]));
 
 //            console.log(getCarouselItem(response[i]));
 
