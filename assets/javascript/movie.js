@@ -25,7 +25,7 @@ $(document).on("click","#addActorSearch", function() {
         // After the data from the AJAX request comes back
         .done(function(response) {
           console.log(response);
-          for (i = 0; response[i].poster != undefined ; i++) {
+          for (i = 0; i < response.length ; i++) {
             NetImgArray.push(response[i].poster);
             console.log(i + 1);
           };
