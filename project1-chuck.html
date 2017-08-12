@@ -1,0 +1,141 @@
+<!-- Week 8 homework Team The Directors
+https://github.com/KC0NUG/TheDirectors.git
+Team Members:
+Chucks @KC0NUG
+Taylor @taylorson
+GSGalarnyk
+Andy @andy-sloop
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
+<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+<title>The Directors</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Bootstrap CDN-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"/>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!-- Nav -->
+
+
+
+  <nav class="navbar navbar-inverse">
+     <div class="container-fluid">
+       <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+        <img src="glyphicon glyphicon-th-list" alt="">
+         TheDirectors</a>
+        <ul class="nav navbar-nav">
+         <li class="active"><a href="#">About Us</a></li>
+         <li><a href="#">Entertainment</a></li>
+       </ul>
+       </div>
+       <ul class="nav navbar-nav navbar-right">
+         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+         <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+       </ul>
+     </div>
+   </nav> 
+
+   <!-- Carousel -->
+   <div id="myCarousel" class="carousel slide">
+     <!-- Indicators -->
+     <ol id="carouselInd" class="carousel-indicators">
+
+    <!--
+       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+       <li data-target="#myCarousel" data-slide-to="1"></li>
+       <li data-target="#myCarousel" data-slide-to="2"></li>
+    -->
+
+     </ol>
+     <div id="carousel" class="carousel-inner">
+     </div>
+   </div>
+      <!--
+       <div id="item1" class="item active">
+         <div class="container">
+           <div class="carousel-caption">
+           </div>
+         </div>
+       </div>
+       <div class="item">
+         <img src="./assets/images/cats.jpeg">
+         <div class="container">
+           <div class="carousel-caption">
+           </div>
+         </div>
+       </div>
+       <div class="item">
+         <img src="./assets/images/trump.jpeg">
+         <div class="container">
+           <div class="carousel-caption">
+           </div>
+         </div>
+       </div>
+     <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+       <i class="glyphicon glyphicon-chevron-left"></i>
+     </a>
+     <a class="right carousel-control" href="#myCarousel" data-slide="next">
+       <i class="glyphicon glyphicon-chevron-right"></i>
+     </a>
+     -->
+  <form class="col-sm-12" id="searchForm">
+    <div class="form-group col-sm-4 col-sm-offset-4">
+      <div class="input-group input-group-lg center-block">
+      <input type="text" class="form-control" placeholder="Search">
+      <select class="form-control">
+          <!-- <option>search parameters</option> -->
+          <option value="movie">Movie</option>
+          <option value="actor">Actor</option>
+          <option value="genre">Genre</option>
+        </select>
+        <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+      </form>
+      </div>
+    </div>
+  </form> 
+   </div>
+   </div>
+
+   <!-- /.carousel -->
+   <!-- populate movies into panels -->
+   <div class="container-movies">
+   <div class="row">
+       <div class="col-md-7" id="MovieZone">
+       <div class = "panel panel-default">
+          <div class = "panel-heading text-center">
+             <h2 class = "panel-title">
+               MOVIES
+             </h2>
+          </div>
+
+          <div class = "panel-body">
+
+          <div id="MovieZone">
+
+          </div>
+          </div>
+       </div>
+     </div>
+     </div>
+   </div>
+     <!-- TO THE TOP -->
+    <footer>
+       <p class="pull-right"><a href="#">
+        <span class="glyphicon glyphicon-triangle-top"></span>
+        </a></p>
+    </footer>
+   </div>
+   </body>
+   </html>
+
+
+ <script type="text/javascript" src="./assets/javascript/movie.js"></script>
+ </body>
+ </html>
