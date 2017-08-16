@@ -84,6 +84,78 @@ function getCarouselItem(movie, active = false) {
 }
 
 /////////////////////////////////////////////////
-var genreList = ["28-Action", "12-Adventure", "16-Animation", "35-Comedy", "80-Crime", "99-Documentary", "18-Drama", "10751-Family", "14-Fantasy", "36-History", "27-Horror", "10402-Music", "9648-Mystery", "10749-Romance", "878-Science Fiction", "10770-TV Movie", "53-Thriller", "10752-War", "37-Western"];
-
+var movieID ="";
+   /////////////////////////////////////////////////
+var genreList = [{"id":28, "type": "action"},
+                {"id":12, "type": "adventure"},
+                {"id":16, "type": "animation"},
+                {"id":35, "type": "comedy"},
+                {"id":80, "type": "crime"},
+                {"id":99, "type": "documentary"},
+                {"id":18, "type": "drama"},
+                {"id":10751, "type": "family"},
+                {"id":14, "type": "fantasy"},
+                {"id":36, "type": "history"},
+                {"id":27, "type": "horror"},
+                {"id":10402, "type": "music"},
+                {"id":9648, "type": "mystery"},
+                {"id":10749, "type": "romance"},
+                {"id":878, "type": "science fiction"},
+                {"id":10770, "type": "tv movie"},
+                {"id":53, "type": "thriller"},
+                {"id":10752, "type": "war"},
+                {"id":37, "type": "western"},
+                ]
   ////////////////////////////////////////////////
+var genreChoiceName ="";
+var genreChoiceID;
+      // Perfoming an AJAX GET request to our queryURL 119450
+      $(document).on("click", "#addActorSearch", function() {
+        genreChoiceName = $("#actorSearch").val().toLowerCase().trim();
+        for (i = 0; i < genreList.length; i++){
+        if (genreChoiceName === genreList[i].type) {
+          genreChoiceID = genreList[i].id ;
+          break;
+        } }
+      $.ajax({
+        url: "https://api.themoviedb.org/3/discover/movie?with_genres=" + genreChoiceID + "&api_key=a047d6b87fa4f7951cd40ad3fcd83136",
+        //Where you see "878" in the url, that is the genre id. Type genreList in the console to see other genres
+        method: "GET"
+      })
+
+      .done(function(response) {
+        console.log(response);
+        movieID = response.results[0].id;
+        var newurl = "https://api.themoviedb.org/3/movie/" + movieID + "?api_key=a047d6b87fa4f7951cd40ad3fcd83136";
+       console.log(newurl);
+        $.ajax({
+        url: newurl,
+        method: "GET"
+      })
+        .done(function(data) {
+        console.log(data);
+
+      });
+        console.log(response.results[0].id);
+      });
+        // console.log(response.genres.length);
+        // for (i = 0; i < response.genres.length ; i++)
+        // { console.log("---------------");
+        //   console.log(response.genres[i].id);
+        //   console.log(response.genres[i].name);
+        //   tempgen = response.genres[i].id + "-" + response.genres[i].name;
+        //   $("#info").append("<p>" + response.genres[i].id + "</p>");
+        //   $("#info").append("<p>" + response.genres[i].name + "</p>");
+        //   $("#info").append("<p>------------------</p>");
+        //   genre.push(tempgen);
+
+        //https://api.themoviedb.org/3/movie/343611?api_key=a047d6b87fa4f7951cd40ad3fcd83136
+      //https://api.themoviedb.org/3/find/tt2406468?api_key=###&external_source=imdb_id
+      //find/{external_id}
+      // /discover/movie?with_genres=18&primary_release_year=2014
+//https://api.themoviedb.org/3/discover/movie?with_genres=878&api_key=a047d6b87fa4f7951cd40ad3fcd83136
+//genre/movie/list?language=en-US
+      // After the data from the AJAX request comes back
+
+
+      });
