@@ -29,16 +29,16 @@ Andy @andy-sloop
         <form class="form-inline">
           <div class="form-group">
             <div class="input-group">
-              <input type="text" class="form-control" aria-label="..." placeholder="type here">
+              <input id="txtbx" type="text" class="form-control" aria-label="..." placeholder="type here">
               <div class="input-group-btn">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All categories <span class="caret"></span>
+                <button id="drpdwn" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All categories <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-right">
                   <li><a href="#">Movie</a></li>
                   <li><a href="#">Actor</a></li>
                   <li><a href="#">Genre</a></li>
                 </ul>
-                <button type="submit" class="btn btn-primary">Search</button>
+                <button id="btnsubmit" type="submit" class="btn btn-primary">Search</button>
                   <i class="fa fa-search"></i>
                 </button>
               </div>
@@ -51,11 +51,27 @@ Andy @andy-sloop
 </div>
 <script type="text/javascript" src="./assets/javascript/movie.js"></script>
 
-<script src="content/js/jquery.min.js"></script>
-<script src="content/js/bootstrap.min.js"></script>
 <script>
+var userparas = [];
+var testvar = "";
     $(document).ready(function () {
         $('.dropdown-toggle').dropdown();
+    });
+
+    $(document).on("click","#btnsubmit", function(event){
+      event.preventDefault();
+      console.log("working");
+      window.localStorage.removeItem("Mname");
+      window.localStorage.removeItem("Mtype");
+
+      userparas.push( $("#txtbx").val().trim());
+      userparas.push($("#drpdwn").val().trim());
+      window.localStorage.setItem("Mname", userparas[0]);
+      window.localStorage.setItem("Mtype", userparas[1]);
+      // testvar = window.localStorage.getItem('Mname');
+      location.href = "./index.html";
+    console.log("working better")
+
     });
 </script>
 </body>

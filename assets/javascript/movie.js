@@ -11,9 +11,9 @@ Chucks @KC0NUG
 var NetImgArray = [];
 var NetURL = "";
 
-$(document).on("click","#addActorSearch", function() {
+$(document).ready( function() {
   console.log("working");
-  NetURL = $('#actorSearch').val().trim();
+  NetURL = window.localStorage.getItem('Mname');
 
   console.log(NetURL);
   $.ajax({
