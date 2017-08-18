@@ -47,7 +47,7 @@ body {
   height: 450px;
   background-color:#bbb;
   overflow:hidden;
-  data-interval=false;
+  data-interval: false;
 
 
 }
