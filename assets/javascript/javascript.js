@@ -9,14 +9,14 @@ Team Members:
 Chucks @KC0NUG
 */
 
-  // Initialize Firebase
-  // TODO: Replace with your project's customized code snippet
+ // Initialize Firebase
   var config = {
     apiKey: "AIzaSyCwGa3AV0lfZzG4ckvLEHQFBA0X6UZRPVw",
-    authDomain: "movie-vault-8d0ef.firebaseio.com/",
-    databaseURL: "https://movie-vault-8d0ef.firebaseio.com/",
-    storageBucket: "gs://movie-vault-8d0ef.appspot.com",
-    messagingSenderId: "1027534137254",
+    authDomain: "movie-vault-8d0ef.firebaseapp.com",
+    databaseURL: "https://movie-vault-8d0ef.firebaseio.com",
+    projectId: "movie-vault-8d0ef",
+    storageBucket: "movie-vault-8d0ef.appspot.com",
+    messagingSenderId: "1027534137254"
   };
   firebase.initializeApp(config);
 
