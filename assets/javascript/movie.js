@@ -26,6 +26,22 @@ $(document).ready( function() {
         .done(function(response) {
           console.log(response);
 
+
+          // When an image in the document is clicked, pass it the response
+          // from the API and do some stuff.
+          $(document).on("click", "img", response, function() {
+
+            var urlOfImage = $(this).attr("src"); // HTML IMG element which will contain the src which is a URL
+
+            var movie = response.find(function(element) {
+              return (element.poster === urlOfImage);
+            });
+
+            console.log(movie);
+            $("#movie-info").text(movie.summary);
+
+          });
+
           $("#carouselInd").empty();
           $("#carousel").empty();
 
@@ -75,12 +91,14 @@ function getCarouselIndicator(count, active = false) {
 
 function getCarouselItem(movie, active = false) {
   var poster = movie.poster;
+   var title = movie.show_title;
 
-  if (active) {
-    return `<div class="item active"><img src="${poster}"><div class="container"><div class="carousel-caption"></div></div></div>`;
+   if (active) {
+    return `<div class="item active"><img src="${poster}" data-title='${title}'><div class="container"><div class="carousel-caption">${title}</div></div></div>`;
   }
 
-  return `<div class="item"><img src="${poster}"><div class="container"><div class="carousel-caption"></div></div></div>`;
+  return `<div class="item"><img src="${poster}" data-title='${title}'><div class="container"><div class="carousel-caption">${title}</div></div></div>`;
+
 }
 
 /////////////////////////////////////////////////
