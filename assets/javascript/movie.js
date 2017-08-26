@@ -8,6 +8,50 @@ https://github.com/KC0NUG/TheDirectors.git
 Team Members:
 Chucks @KC0NUG
 */
+
+// Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCwGa3AV0lfZzG4ckvLEHQFBA0X6UZRPVw",
+    authDomain: "movie-vault-8d0ef.firebaseapp.com",
+    databaseURL: "https://movie-vault-8d0ef.firebaseio.com",
+    projectId: "movie-vault-8d0ef",
+    storageBucket: "movie-vault-8d0ef.appspot.com",
+    messagingSenderId: "1027534137254"
+  };
+  firebase.initializeApp(config);
+
+    // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // ...
+});
+
+firebase.auth().signOut().then(function() {
+  // Sign-out successful.
+}).catch(function(error) {
+  // An error happened.
+});
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '460507360991533',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+    FB.AppEvents.logPageView();
+  };
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+
+
+
 var NetImgArray = [];
 var NetURL = "";
 
