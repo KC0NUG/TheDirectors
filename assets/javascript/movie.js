@@ -82,7 +82,7 @@ $(document).ready( function() {
             });
 
             console.log(movie);
-            $("#movie-info").text(movie.summary);
+            $("#MovieZone").text(movie.summary);
 
           });
 
