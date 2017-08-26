@@ -33,7 +33,7 @@ firebase.auth().signOut().then(function() {
   // An error happened.
 });
 
-  
+
 
 
 
@@ -158,8 +158,8 @@ var genreList = [{"id":28, "type": "action"},
 var genreChoiceName ="";
 var genreChoiceID;
       // Perfoming an AJAX GET request to our queryURL 119450
-      $(document).on("click", "#addActorSearch", function() {
-        genreChoiceName = $("#actorSearch").val().toLowerCase().trim();
+      $(document).ready(function() {
+        genreChoiceName = window.localStorage.getItem('Mname');
         for (i = 0; i < genreList.length; i++){
         if (genreChoiceName === genreList[i].type) {
           genreChoiceID = genreList[i].id ;
@@ -172,19 +172,20 @@ var genreChoiceID;
       })
 
       .done(function(response) {
+        var movieImg = "http://image.tmdb.org/t/p/w1000/" +
         console.log(response);
         movieID = response.results[0].id;
-        var newurl = "https://api.themoviedb.org/3/movie/" + movieID + "?api_key=a047d6b87fa4f7951cd40ad3fcd83136";
-       console.log(newurl);
-        $.ajax({
-        url: newurl,
-        method: "GET"
-      })
-        .done(function(data) {
-        console.log(data);
-
-      });
-        console.log(response.results[0].id);
+      //   var newurl = "https://api.themoviedb.org/3/movie/" + movieID + "?api_key=a047d6b87fa4f7951cd40ad3fcd83136";
+      //  console.log(newurl);
+      //   $.ajax({
+      //   url: newurl,
+      //   method: "GET"
+      // })
+      //   .done(function(data) {
+      //   console.log(data);
+      //
+      // });
+      //   console.log(response.results[0].id);
       });
         // console.log(response.genres.length);
         // for (i = 0; i < response.genres.length ; i++)
