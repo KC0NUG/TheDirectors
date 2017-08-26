@@ -34,18 +34,44 @@ firebase.auth().signOut().then(function() {
 });
 
 
-
+var genreList = [{"id":28, "type": "action"},
+                {"id":12, "type": "adventure"},
+                {"id":16, "type": "animation"},
+                {"id":35, "type": "comedy"},
+                {"id":80, "type": "crime"},
+                {"id":99, "type": "documentary"},
+                {"id":18, "type": "drama"},
+                {"id":10751, "type": "family"},
+                {"id":14, "type": "fantasy"},
+                {"id":36, "type": "history"},
+                {"id":27, "type": "horror"},
+                {"id":10402, "type": "music"},
+                {"id":9648, "type": "mystery"},
+                {"id":10749, "type": "romance"},
+                {"id":878, "type": "science fiction"},
+                {"id":10770, "type": "tv movie"},
+                {"id":53, "type": "thriller"},
+                {"id":10752, "type": "war"},
+                {"id":37, "type": "western"},
+                ]
 
 
 
 var NetImgArray = [];
 var NetURL = "";
+var runActor = true;
 
 $(document).ready( function() {
   console.log("working");
   NetURL = window.localStorage.getItem('Mname');
+  for (i = 0; i < genreList.length; i++){
+  if (NetURL === genreList[i].type) {
+    runActor = false ;
+    break;
+  } }
 
   console.log(NetURL);
+  if (runActor) {
   $.ajax({
           url: "https://netflixroulette.net/api/api.php?actor=" + NetURL,
           //search by director, actor, and title works, year is weird jay lowi
@@ -104,7 +130,7 @@ $(document).ready( function() {
           NetImgArray.push(response[2].poster);
           console.log(NetImgArray);
 */
-        });
+        }); }
 });
 
 function getCarouselCtl() {
@@ -134,32 +160,13 @@ function getCarouselItem(movie, active = false) {
 /////////////////////////////////////////////////
 var movieID ="";
    /////////////////////////////////////////////////
-var genreList = [{"id":28, "type": "action"},
-                {"id":12, "type": "adventure"},
-                {"id":16, "type": "animation"},
-                {"id":35, "type": "comedy"},
-                {"id":80, "type": "crime"},
-                {"id":99, "type": "documentary"},
-                {"id":18, "type": "drama"},
-                {"id":10751, "type": "family"},
-                {"id":14, "type": "fantasy"},
-                {"id":36, "type": "history"},
-                {"id":27, "type": "horror"},
-                {"id":10402, "type": "music"},
-                {"id":9648, "type": "mystery"},
-                {"id":10749, "type": "romance"},
-                {"id":878, "type": "science fiction"},
-                {"id":10770, "type": "tv movie"},
-                {"id":53, "type": "thriller"},
-                {"id":10752, "type": "war"},
-                {"id":37, "type": "western"},
-                ]
+
   ////////////////////////////////////////////////
-var genreChoiceName ="";
+var genreChoiceName = window.localStorage.getItem('Mname');
 var genreChoiceID;
       // Perfoming an AJAX GET request to our queryURL 119450
       $(document).ready(function() {
-        genreChoiceName = window.localStorage.getItem('Mname');
+
         for (i = 0; i < genreList.length; i++){
         if (genreChoiceName === genreList[i].type) {
           genreChoiceID = genreList[i].id ;
