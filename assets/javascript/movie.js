@@ -187,9 +187,9 @@ function getGenCarouselItem(movie, active = false) {
   // console.log(poster);
   // console.log(title);
   if (active) {
-    return `<div class="item active"><img src="${poster}" data-title='${title}'><div class="container"><div class="carousel-caption">${title}</div></div></div>`;
+    return `<div class="item active"><img src="${poster}" alt="Flower" width="360" height="200" data-title='${title}'><div class="container"><div class="carousel-caption">${title}</div></div></div>`;
   }
-  return `<div class="item"><img src="${poster}" data-title='${title}'><div class="container"><div class="carousel-caption">${title}</div></div></div>`;
+  return `<div class="item"><img src="${poster}" alt="Flower" width="360" height="200" data-title='${title}'><div class="container"><div class="carousel-caption">${title}</div></div></div>`;
 }
 
 
